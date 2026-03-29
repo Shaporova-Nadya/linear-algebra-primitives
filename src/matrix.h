@@ -32,3 +32,21 @@ void csrVecMul(const CSR* matrix, const double* vector, double* result);
  * @result Указатель на новую матрицу C (размером m x n) или NULL при ошибке
  */
 CSR* csrMatMul(const CSR* A, const CSR* B);
+
+/**
+ * @brief применение унарной функции к элементам матрицы
+ * 
+ * @param[in] A  указатель на матрицу
+ * @param[in] f  указатель на функцию
+ * @result Указатель на новую матрицу C
+ */
+CSR* csrMap(const CSR* A, double (*f)(double));
+
+/**
+ * @brief применение бинарной функции к элементам двух матриц
+ * 
+ * @param[in] A  Первая матрица
+ * @param[in] B  Вторая матрица
+ * @result Указатель на матрицу C
+ */
+CSR* csrMap2(const CSR* A, const CSR* B, double(*g)(double, double));
